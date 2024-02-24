@@ -1,0 +1,13 @@
+Description=Service to monitor AirplayExtreme services and power on/off LEDs
+Wants=network.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/check-services-status-led.py
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

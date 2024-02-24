@@ -1,0 +1,14 @@
+Description=listen for button push to trigger a shutdown
+Wants=network.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/listen-for-shutdown.py
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
